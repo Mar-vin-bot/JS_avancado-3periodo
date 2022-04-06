@@ -18,18 +18,18 @@
         var cont = 0
 
         function SomarUm() {
-            return 
-            <div>
-            <p> Contador {cont++} </p>
-            <button onclick={playContador}> Incrementar </button>  .
-            </div>
+            return <div>
+                    <p> Contador {cont++} </p>
+                    <button onclick={playContador}> Incrementar </button>  
+                </div>
         }
         
         function playContador(){
-        ReactDOM.render(<SomarUm/>, document.getElementById("root")) //tem que ficar dentro da função p/ este ser inputado a cada click
+                 ReactDOM.render(<SomarUm/>, document.getElementById("root")) //tem que ficar dentro da função p/ este ser inputado a cada click
 
         }
-
+        
+        playContador();
     </script>
 
     <input type="button" value="Clicar" onclick="somarUm()">
