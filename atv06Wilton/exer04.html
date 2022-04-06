@@ -17,7 +17,7 @@
     <script type="text/babel">
         var cont = 0
 
-        function somarUm() {
+        function SomarUm() {
             return 
             <div>
             <p> Contador {cont++} </p>
@@ -26,7 +26,7 @@
         }
         
         function playContador(){
-        ReactDOM.render(elemento, document.getElementById("root")) //tem que ficar dentro da função p/ este ser inputado a cada click
+        ReactDOM.render(<SomarUm/>, document.getElementById("root")) //tem que ficar dentro da função p/ este ser inputado a cada click
 
         }
 
