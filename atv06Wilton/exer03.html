@@ -18,12 +18,18 @@
 
         
         function MostrarHora() {                //refatorado com elemente function 
+        
             var currentTime = new Date();
-            const elemento =  <p>    {currentTime.toLocaleString()}    </p>;
+           return  <p>    {currentTime.toLocaleString()}    </p>;
+           
+           }
+           function playTime(){
+            ReactDOM.render(<MostrarHora/>, document.getElementById("root"));
+           }
       
-            ReactDOM.render(elemento, document.getElementById("root"));
-        }
-        setInterval(MostrarHora, 1000);
+            
+        
+        setInterval(playTime, 1000);
 
 
 
