@@ -19,9 +19,7 @@
         
         function MostrarHora() {                //refatorado com elemente function 
             var currentTime = new Date();
-            const elemento = <p>      
-                                {currentTime.toLocaleString()}
-                            </p>
+            return <p>    {currentTime.toLocaleString()}    </p>
       
             ReactDOM.render(<MostrarHora/>, document.getElementById("root"));
         }
