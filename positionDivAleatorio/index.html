@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <style>
+        .box {
+
+            position: absolute;
+            border: 3px;
+            background-color: red;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"> </div>
+    <button onClick="botDiv()">Exibir</button>
+
+    <script type="text/babel">
+
+        var name = prompt("Qual é seu nome")
+        var alt = parseInt(prompt("Qula altura de (0 - 400")) //deve-se colocar o parse int para especificar que alt, lar são numericos
+        var lar = parseInt(prompt("Qula largura de (0 - 400"))
+
+
+        function geraAleatorio(){
+            return Math.random() * 100 // disp menores vai estourar
+            //console.log(geraAleatorio())
+        }
+
+
+
+        function Box(props) { //propos é um obj
+            const pageWidth = document.documentElement.scrollWidth;
+            const pageHeight = document.documentElement.scrollHeight;
+
+            var altura  = pageHeight - geraAleatorio() - alt
+            var largura  = pageWidth  - geraAleatorio() - lar
+
+
+            return <div className="box" style={{ width: props.width + "px", height: props.height + "px", margin_right: props.largura + "px", margin_top: props.altura + "px" }}>
+                {props.name}
+            </div>
+
+        };
+
+
+        function botDiv(){
+
+            ReactDOM.render(<Box name={name} width={lar} height={alt}/>, document.getElementById("root"))
+
+        }
+
+    </script>
+
+</body>
+
+</html>
