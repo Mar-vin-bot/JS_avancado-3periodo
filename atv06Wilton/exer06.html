@@ -10,9 +10,11 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     
     <style>
-        .container {
+        .box {
             border: 3px;
             background-color: red;
+
+
         }
 
     </style>
@@ -25,16 +27,17 @@
         var alt = parseInt( prompt("Qula altura de (0 - 400")) //deve-se colocar o parse int para especificar que alt, lar são numericos
         var lar = parseInt( prompt("Qula largura de (0 - 400"))
 
-        const box = {
-            width: lar,
-            height: alt
+
+        function Box(props){ //propos é um obj
+            return <div className="box" style={{width:props.width+"px", height:props.height+"px"}}>
+             {props.name}
+              </div>
+
         };
 
 
 
-         const elemento = (<div className="container" style={box}> <p>Olá, {name}</p> </div>)
-
-        ReactDOM.render(elemento, document.getElementById("root"))
+        ReactDOM.render(<Box name={name} width={lar} height={alt}/>, document.getElementById("root"))
 
     </script>
     

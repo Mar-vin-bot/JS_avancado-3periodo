@@ -15,8 +15,11 @@
 
     <div id="root"></div>
     <script type="text/babel">
-        const elemento = <h1>Hello Word</h1>
-        ReactDOM.render(elemento, document.getElementById("root"));
+        function HelloWord(){           //exer pede conponente, assim sempre usar dessa forma com função 
+            return <p>Helloe Word</p>
+        
+        }
+        ReactDOM.render(<HelloWord/>, document.getElementById("root"));
 
     </script>
 

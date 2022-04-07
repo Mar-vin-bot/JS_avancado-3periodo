@@ -16,14 +16,14 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        
-        var currentTime = new Date();
+    
+          function Timer(){
+         var currentTime = new Date();
+            return  <p>  {currentTime.toLocaleTimeString()}      </p>
+          
+          }
 
-        const elemento = <p>
-                            {currentTime.getHours()} : {currentTime.getMinutes()}: {currentTime.getSeconds()}
-                        </p>
-
-        ReactDOM.render(elemento, document.getElementById("root"))
+        ReactDOM.render(<Timer/>, document.getElementById("root"))
     </script>
 
 

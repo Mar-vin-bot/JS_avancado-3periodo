@@ -17,15 +17,19 @@
     <script type="text/babel">
 
         
-        function mostrarHora() {
+        function MostrarHora() {                //refatorado com elemente function 
+        
             var currentTime = new Date();
-            const elemento = <p>      
-                                {currentTime.getHours()} : {currentTime.getMinutes()}: {currentTime.getSeconds()}
-                            </p>
+           return  <p>    {currentTime.toLocaleString()}    </p>;
+           
+           }
+           function playTime(){
+            ReactDOM.render(<MostrarHora/>, document.getElementById("root"));
+           }
       
-            ReactDOM.render(elemento, document.getElementById("root"));
-        }
-        setInterval(mostrarHora, 1000);
+            
+        
+        setInterval(playTime, 1000);
 
 
 

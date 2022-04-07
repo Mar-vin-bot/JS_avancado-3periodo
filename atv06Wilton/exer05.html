@@ -12,25 +12,25 @@
 </head>
 
 <body>
+    
     <div id="root"></div>
     <script type="text/babel">
-        var cont = 0
 
-        const elementoZero = <p> {cont++} </p>   //identico ao de baixo para a pg ja carregar com cont no 0
-        ReactDOM.render(elementoZero, document.getElementById("root"))
-
-
-        function contador() {
-            const elemento = <p> {cont++} </p>
-            ReactDOM.render(elemento, document.getElementById("root"))
+        var i = 0;
+        function Counter() {
+            return <p> Contador = {i++}</p>;
         }
-
-
+        function playContador() {
+            ReactDOM.render(<Counter />, document.getElementById("root"));
+        }
+        function playCounter() {
+            setInterval(playContador, 1000);
+        }
+        playContador();
 
     </script>
 
-
-    <input type="button" value="clicar" onclick="setTimeout(contador,1000)">
+        <button onclick="playCounter()">Incrementar</button>
 
 </body>
 
