@@ -19,7 +19,7 @@
 
             document.getElementById("table").innerHTML = `<th>Usuário</th>
                                     <th>Pontuação</th>`
-        }
+        
 
         conteudo.players.forEach(function varrerJson(elemento, i) {
             if (elemento.level == opcaoValue) {
@@ -28,6 +28,8 @@
                                     <td>${elemento.score}</td></tr>`;
             }
         }
+    }
+
 
     </script>
 </head>
