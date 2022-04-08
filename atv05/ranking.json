@@ -1,10 +1,34 @@
 {
-    "players":[
-{"Username":"Ana", "Score":"10", "Level":"Easy"},
-{"Username":"José", "Score":"15", "Level":"Medium"},
-{"Username":"Maria", "Score":"30", "Level":"Hard"},
-{"Username":"Pedro", "Score":"20", "Level":"Medium"},
-{"Username":"Joane", "Score":"20", "Level":"Easy"},
-{"Username":"Gabriel", "Score":"50", "Level":"Hard"}
+    "players": [
+        {
+            "Username": "Ana",
+            "Score": "10",
+            "Level": "Easy"
+        },
+        {
+            "Username": "José",
+            "Score": "15",
+            "Level": "Medium"
+        },
+        {
+            "Username": "Maria",
+            "Score": "30",
+            "Level": "Hard"
+        },
+        {
+            "Username": "Pedro",
+            "Score": "20",
+            "Level": "Medium"
+        },
+        {
+            "Username": "Joane",
+            "Score": "20",
+            "Level": "Easy"
+        },
+        {
+            "Username": "Gabriel",
+            "Score": "50",
+            "Level": "Hard"
+        }
     ]
 }
