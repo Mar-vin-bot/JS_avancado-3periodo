@@ -1,10 +1,10 @@
 {
-    "jogadores" :[
-{ "Nome de usuário" : " Ana " , "Pontuação" : " 10 " , "Nível" : " Fácil " },
-{ "Nome de usuário" : " José " , "Pontuação" : " 15 " , "Nível" : " Médio " },
-{ "Nome de usuário" : " Maria " , "Pontuação" : " 30 " , "Nível" : " Difícil " },
-{ "Nome de usuário" : " Pedro " , "Pontuação" : " 20 " , "Nível" : " Médio " },
-{ "Nome de usuário" : " Joane " , "Pontuação" : " 20 " , "Nível" : " Fácil " },
-{ "Nome de usuário" : " Gabriel " , "Pontuação" : " 50 " , "Nível" : " Difícil " }
+    "players":[
+{"Username":"Ana", "Score":"10", "Level":"Easy"},
+{"Username":"José", "Score":"15", "Level":"Medium"},
+{"Username":"Maria", "Score":"30", "Level":"Hard"},
+{"Username":"Pedro", "Score":"20", "Level":"Medium"},
+{"Username":"Joane", "Score":"20", "Level":"Easy"},
+{"Username":"Gabriel", "Score":"50", "Level":"Hard"}
     ]
 }

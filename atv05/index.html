@@ -1,46 +1,46 @@
-<!DOCTYPEhtml >
-< html  lang =" en " >
+<!DOCTYPE html>
+<html lang="en">
 
-< cabeça >
-    < meta  charset =" UTF-8 " >
-    < meta  http-equiv = " Conteúdo compatível com X-UA " =" IE=edge " >
-    < meta  name =" viewport " content =" largura=largura do dispositivo, escala inicial=1.0 " >
-    < title > Documento </ title >
-    < roteiro >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
 
-         função  assíncrona showNivel ( nome do arquivo )  {
-             arquivo =  await fetch  ( " ranking.json " ) ;
-            conteudo  =  aguarde  arquivo . json ( ) ;
-            tabela  =  documento . getElementById ( "tabClients" ) ;
-            conteudo . jogadores . filtro ( jogador  =>  {
-                linha  =  documento . createElement ( "tr" ) ;
+        async function showNivel(filename) {
+            arquivo = await fetch("ranking.json");
+            conteudo = await arquivo.json();
+            tabela = document.getElementById("tabClients");
+            conteudo.players.filter(jogador => {
+                linha = document.createElement("tr");
 
-            showProducts ( conteudo ,  -1 ) ; _
+            showProducts(conteudo, -1);
         }
 
-        função  readSelect ( )  {
-            índiceNivel  =  documento . getElementById ( "selectLevel" ) . Índice selecionado ;
-            if  ( índiceNível  ==  1 )  {
-                documento . getElementById ( "" )
+        function readSelect() {
+            indiceNivel = document.getElementById("selectLevel").selectedIndex;
+            if (indiceNivel == 1) {
+                document.getElementById("")
             }
         }
 
 
-    </ script >
-</ cabeça >
+    </script>
+</head>
 
-< corpo >
-    < h1 > Selecione o nível de dificuldade para visualizar o ranking. </ h1 >
-    < formulário >
-        < select  id =" selectLevel " onchange =" readSelect() " >
-            < opção > Fácil </ opção >
-            < option > Médio </ option >
-            < opção > Difícil </ opção >
-        </ selecione >
-        < input  type =" button " value =" Visualizar " id ="" onchange =" getRanking() " >
-    </ formulário >
+<body>
+    <h1>Selecione o nível de dificuldade para visualizar o ranking.</h1>
+    <form>
+        <select id="selectLevel" onchange="readSelect()">
+            <option>Easy</option>
+            <option>Medium</option>
+            <option>Hard</option>
+        </select>
+        <input type="button" value="Visualizar" id="" onchange="getRanking()">
+    </form>
 
 
-</ corpo >
+</body>
 
-</ html >
+</html>
