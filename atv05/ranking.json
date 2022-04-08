@@ -1,0 +1,10 @@
+{
+    "jogadores" :[
+{ "Nome de usuário" : " Ana " , "Pontuação" : " 10 " , "Nível" : " Fácil " },
+{ "Nome de usuário" : " José " , "Pontuação" : " 15 " , "Nível" : " Médio " },
+{ "Nome de usuário" : " Maria " , "Pontuação" : " 30 " , "Nível" : " Difícil " },
+{ "Nome de usuário" : " Pedro " , "Pontuação" : " 20 " , "Nível" : " Médio " },
+{ "Nome de usuário" : " Joane " , "Pontuação" : " 20 " , "Nível" : " Fácil " },
+{ "Nome de usuário" : " Gabriel " , "Pontuação" : " 50 " , "Nível" : " Difícil " }
+    ]
+}

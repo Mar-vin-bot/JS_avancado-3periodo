@@ -1,0 +1,46 @@
+<!DOCTYPEhtml >
+< html  lang =" en " >
+
+< cabeça >
+    < meta  charset =" UTF-8 " >
+    < meta  http-equiv = " Conteúdo compatível com X-UA " =" IE=edge " >
+    < meta  name =" viewport " content =" largura=largura do dispositivo, escala inicial=1.0 " >
+    < title > Documento </ title >
+    < roteiro >
+
+         função  assíncrona showNivel ( nome do arquivo )  {
+             arquivo =  await fetch  ( " ranking.json " ) ;
+            conteudo  =  aguarde  arquivo . json ( ) ;
+            tabela  =  documento . getElementById ( "tabClients" ) ;
+            conteudo . jogadores . filtro ( jogador  =>  {
+                linha  =  documento . createElement ( "tr" ) ;
+
+            showProducts ( conteudo ,  -1 ) ; _
+        }
+
+        função  readSelect ( )  {
+            índiceNivel  =  documento . getElementById ( "selectLevel" ) . Índice selecionado ;
+            if  ( índiceNível  ==  1 )  {
+                documento . getElementById ( "" )
+            }
+        }
+
+
+    </ script >
+</ cabeça >
+
+< corpo >
+    < h1 > Selecione o nível de dificuldade para visualizar o ranking. </ h1 >
+    < formulário >
+        < select  id =" selectLevel " onchange =" readSelect() " >
+            < opção > Fácil </ opção >
+            < option > Médio </ option >
+            < opção > Difícil </ opção >
+        </ selecione >
+        < input  type =" button " value =" Visualizar " id ="" onchange =" getRanking() " >
+    </ formulário >
+
+
+</ corpo >
+
+</ html >
