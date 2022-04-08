@@ -7,27 +7,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        
+
 
         async function showNivel(filename) {
             arquivo = await fetch("ranking.json");
             conteudo = await arquivo.json();
 
 
-            var select = document.getElementById("selectLevel");
-            var opcaoValue = select.options[select.selectedIndex].value;
+            select = document.getElementById("selectLevel");
+            opcaoValue = select.options[select.selectedIndex].value;
 
             document.getElementById("table").innerHTML = `<th>Usuário</th>
                                     <th>Pontuação</th>`
-        
 
-        conteudo.players.forEach(function varrerJson(elemento, i) {
-            if (elemento.level == opcaoValue) {
-                document.getElementById("tabela").innerHTML += 
-                                    `<tr><td>${elemento.username}</td>
+
+            conteudo.players.forEach(function varrerJson(elemento, i) {
+                if (elemento.level == opcaoValue) {
+                    document.getElementById("tabela").innerHTML +=
+                        `<tr><td>${elemento.username}</td>
                                     <td>${elemento.score}</td></tr>`;
+                }
             }
-        }
     
     }
 
