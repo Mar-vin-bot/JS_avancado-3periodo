@@ -11,28 +11,18 @@
         async function showNivel(filename) {
             arquivo = await fetch("ranking.json");
             conteudo = await arquivo.json();
+
+            document.getElementById("table").innerHTML = `<th>Usuário</th>
+                                    <th>Pontuação</th>`
         }
 
-        function readSelect(){
-            id_select = document.getElementById("selectLevel").onchange
-            if(id_select == 1){
-                conteudo.players.Level.filter("Easy")
-            } else if (id_select == 2){
-                conteudo.players.Level.filter("Medium")
-            }else if (Medium == 3){
-            conteudo.players.Level.filter("Hard")
-            }else{
-                conteudo.players.Level.filter("")
+        conteudo.players.forEach(function varrerJson(elemento, i) {
+            if (elemento.level == opcaoValue) {
+                document.getElementById("tabela").innerHTML += `
+                                    <tr><td>${elemento.username}</td>
+                                    <td>${elemento.score}</td></tr>`;
             }
         }
-
-        function readSelect() {
-            indiceNivel = document.getElementById("selectLevel").selectedIndex;
-            if (indiceNivel == 1) {
-                document.getElementById("")
-            }
-        }
-
 
     </script>
 </head>
@@ -40,13 +30,22 @@
 <body>
     <h1>Selecione o nível de dificuldade para visualizar o ranking.</h1>
     <form>
-        <select id="selectLevel" onchange="readSelect()">
-            <option>Easy</option>
-            <option>Medium</option>
-            <option>Hard</option>
+        <select name="name_select" id="selectLevel">
+            <option value="escolha"> Chose</option>
+            <option value="Easy"> Fácil</option>
+            <option value="Medium"> Médio</option>
+            <option value="Hard"> Difícil</option>
         </select>
-        <input type="button" value="Visualizar" id="" onchange="getRanking()">
+
+
+        <input type="button" value="Visualizar" onclick="showNivel()">
+
+
     </form>
+
+
+
+    <table id="table"></table>
 
 
 </body>
