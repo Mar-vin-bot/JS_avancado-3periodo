@@ -11,11 +11,19 @@
         async function showNivel(filename) {
             arquivo = await fetch("ranking.json");
             conteudo = await arquivo.json();
-            tabela = document.getElementById("tabClients");
-            conteudo.players.filter(jogador => {
-                linha = document.createElement("tr");
+        }
 
-            showProducts(conteudo, -1);
+        function readSelect(){
+            id_select = document.getElementById("selectLevel").onchange
+            if(id_select == 1){
+                conteudo.players.Level.filter("Easy")
+            } else if (id_select == 2){
+                conteudo.players.Level.filter("Medium")
+            }else if (Medium == 3){
+            conteudo.players.Level.filter("Hard")
+            }else{
+                conteudo.players.Level.filter("")
+            }
         }
 
         function readSelect() {
