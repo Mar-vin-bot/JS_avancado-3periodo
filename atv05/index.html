@@ -32,7 +32,7 @@
 
             tablePlayers.innerHTML = `<tr><th>Usuario</th><th>Pontos</th></tr>`
 
-            jogadores.forEach((elemento, i) => {
+            jogadores.forEach(function insertTable(elemento, i) {
                  trow = tablePlayers.insertRow();
 
                  cellNome = trow.insertCell();
