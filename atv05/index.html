@@ -7,35 +7,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        jogadores = []
 
 
         async function showNivel() {
+            selectLevel = document.getElementById("selectLevel").value
+
+            jogadores = []
+
             arquivo = await fetch("ranking.json");
             conteudo = await arquivo.json();
 
-
-            select = document.getElementById("selectLevel");
-            opcaoValue = select.options[select.selectedIndex].value;
-
-            document.getElementById("tablePlayers").innerHTML = `<th>Usuário</th>
-                                    <th>Pontuação</th>`
-
-
             conteudo.players.forEach(function varrerJson(elemento, i) {
-                if (elemento.level == opcaoValue) {
-                    document.getElementById("tabela").innerHTML +=
-                        `<tr><td>${elemento.username}</td>
-                                    <td>${elemento.score}</td></tr>`;
-                }
-            }
-    
-    }
+                if (conteudo.players[i].Level == selectLevel)
+                    jogadores.push(conteudo.players[i]);
+            })
+            showTable(jogadores);
+        };
+
+        function showTable() {
+            tablePlayers = document.getElementById("tablePlayers")
+
+
+
+            tablePlayers.innerHTML = `<tr><th>Usuario</th><th>Pontos</th></tr>`
+
+            jogadores.forEach((elemento, i) => {
+                 trow = tablePlayers.insertRow();
+
+                 cellNome = trow.insertCell();
+                 cellPontos = trow.insertCell();
+
+
+                 cellNome.innerText = jogadores[i].Username;
+                 cellPontos.innerText = jogadores[i].Score;
+            })
+        
+        }
 
     </script>
+    <style>
+        table, tr,td{
+            margin-top: 5px;
+            border: 1px solid black;
+        }
+
+    </style>
 </head>
 
 <body>
-    <h1>Selecione o nível de dificuldade para visualizar o ranking.</h1>
+    <p>Selecione o nível de dificuldade para visualizar o ranking.</p>
     <form>
         <select name="name_select" id="selectLevel">
             <option value="escolha"> Chose</option>
@@ -52,7 +73,7 @@
 
 
 
-    <table id="tablePlayers"></table>
+    <table name="table" id="tablePlayers"></table>
 
 
 </body>
