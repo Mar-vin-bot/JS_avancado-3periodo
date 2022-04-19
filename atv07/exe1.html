@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+    <style>
+        .alerta {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Contador extends React.Component {
+            constructor(props) { //1 metodo a ser executado
+                super(props);
+                this.state = {
+                    cont: 10
+                }
+            };
+
+            render() {   // 2 metodo a ser a executado render()
+                var nomeClasse = "alerta";
+                if (this.state.cont > 3)
+                    return <p> Contador: {this.state.cont} </p>
+                else return <p className={nomeClasse}>  Contador: {this.state.cont} </p>
+            }
+
+            componentDidMount() {   //
+                this.timeID = setInterval(() => this.decrementarCont(), 1000)
+            }
+            decrementarCont() {
+                if (this.state.cont > 0) this.setState({ cont: this.state.cont - 1 })
+                else clearInterval(this.timeID);
+            }
+        }
+        ReactDOM.render(<Contador />, document.getElementById("root"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
