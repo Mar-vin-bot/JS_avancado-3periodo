@@ -1,11 +1,11 @@
 {
     "Players": [
         {
-            "player": "Wilton de Paula Filho",
+            "name": "Wilton Filho",
             "score": "10"
         },
         {
-            "player": "Maria Jose",
+            "name": "Maria Jose",
             "score": "20"
         }
     ]

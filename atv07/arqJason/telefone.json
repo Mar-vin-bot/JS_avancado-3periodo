@@ -1,0 +1,19 @@
+{
+    "phoneColections": [
+        {
+            "name": "Galaxy s21",
+            "price": "5.399,00",
+            "img": "../imagens/s-l300.png"
+        },
+        {
+            "name": "Iphone",
+            "price": "6.999,90",
+            "img": "../imagens/iphone.jpg"
+        },
+        {
+            "name": "Mi 10 PRO",
+            "price": "3.399,00",
+            "img": "../imagens/xiaomi.jpeg"
+        }
+    ]
+}
