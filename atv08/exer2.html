@@ -24,8 +24,8 @@
             render(){
                 return( 
                     <form>
-                        <input type="number" name="num1" onChange={this.getNum}/>
-                        <input type="number" name="num2" onChange={this.getNum}/>
+                        <input type="number" name="num1" onChange={this.getPriNum}/>
+                        <input type="number" name="num2" onChange={this.getSecNum}/>
 
                         <input type="button" value="calcular" onClick={this.calc}/>
 
@@ -34,10 +34,14 @@
                     </form>
                 );
             }
-            getNum = (numbers) =>{
+            getPriNum(numbers){
+                this.setState({num1:numbers.target.value})
+                
+            }
 
-                this.getNum({[numbers.target.name]: numbers.target.value})
-                console.log(getNum);
+            getSecNum(numbers){
+
+                this.setState({num2:numbers.target.value})
             }
 
 
