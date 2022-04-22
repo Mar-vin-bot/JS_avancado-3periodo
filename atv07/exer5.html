@@ -12,7 +12,7 @@
     <style>
         .title {
             text-align: center;
-    
+
         }
         p{
             color: blue;
@@ -40,7 +40,7 @@
                         {this.state.mobile.map(user =>
                             <span>
                                 <img src={user.img} />
-                                <h2 className={styleTitle}>{user.name}</h2>
+                                <h2 className={styleTitle}> {user.name}</h2>
                                 <p>{user.price}</p>
                             </span>
                         )}
@@ -52,8 +52,11 @@
                 .then (file => file.json())
                 .then(content => {this.setState({mobile:content.phoneColections})}) 
                 .catch(err => console.log(err));
-              
 
+                this.timeID = setInterval(() => this.showPhone(), 1000)
+            }
+            showPhone(){
+                
             }
 
         }
