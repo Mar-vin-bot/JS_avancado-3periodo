@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+
+        class Calculadora extends React.Component {
+            constructor(props){
+            sueper(props);
+            this.state = {
+                num1: 0, num2:0
+            }
+            }
+
+            render(){
+                return( 
+                    <form>
+
+                        <input type="text" name="num1" onChange={this.getNum}/>
+                        <input type="text" name="num2" onChange={this.getNum}/>
+                        <input type="button" value="calcular" onClick={this.calc}/>
+                        <input type="text" name="result" onChange={this.getNum}/>
+
+                    </form>
+                );
+            }
+            getNum = (number) =>{
+
+                this.getNum({[number.target.name]: number.target.value})
+            }
+
+
+            calc = () => {
+
+
+            }
+
+
+        }
+
+
+    
+        
+        ReactDOM.render(<Calculadora/>, document.getElementById("root"));
+    </script>
+</body>
+</html>
