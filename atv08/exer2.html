@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,43 +10,61 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
 </head>
+
 <body>
     <div id="root"></div>
     <script type="text/babel">
 
         class Calculadora extends React.Component {
             constructor(props) {
-            super(props)
-            this.state = {
-                num1: 0, num2:0, result: 0
-            }
+                super(props)
+                this.state = {
+                    num1: 0, num2: 0
+                }
             }
 
-            render(){
-                return( 
+            render() {
+                return (
                     <form>
-                        <input type="number" name="num1" onChange={this.getPriNum}/>
-                        <input type="number" name="num2" onChange={this.getSecNum}/>
+                        Primeiro: <input type="number" name="num1" onChange={this.getPriNum} />
 
-                        <input type="button" value="calcular" onClick={this.calc}/>
+                        Segundo:  <input type="number" name="num2" onChange={this.getSecNum} />
 
-                        <input type="number" name="result" onChange={this.getNum}/>
+                        <input type="button" value="calcular" onClick={this.calc} />
+
+                        Resultado: <input type="number" name="result" id="x" onChange={this.getNum} />
 
                     </form>
                 );
             }
-            getPriNum(numbers){
-                this.setState({num1:numbers.target.value})
-                
+            getPriNum = (numbers) => {
+                this.setState({ num1: numbers.target.value })
+
             }
 
-            getSecNum(numbers){
+            getSecNum = (numbers) => {
 
-                this.setState({num2:numbers.target.value})
+                this.setState({ num2: numbers.target.value })
+                console.log
+
             }
+
+
 
 
             calc = () => {
+                var x = this.state.num1
+                var y = this.state.num2
+                var r = parseInt(x)+ parseInt(y)
+
+                alert(r)
+                /*
+                if ((this.state.num1) > 5) alert("num1");
+                else if ((this.state.num2) >  15) alert("num2")
+                */
+
+
+
 
 
             }
@@ -54,9 +73,10 @@
         }
 
 
-    
-        
-        ReactDOM.render(<Calculadora/>, document.getElementById("root"));
+
+
+        ReactDOM.render(<Calculadora />, document.getElementById("root"));
     </script>
 </body>
+
 </html>
