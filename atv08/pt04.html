@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Login extends React.Component {
+            constructor(props) { //1 a ser executado
+                super(props)
+                this.state = {
+                    userName:"",
+                    pwd:""
+
+                }
+            }
+
+            render() {              //2 a ser executado
+                return (
+                    <form>
+                        Usuario: <input type="texte" name="" id=""  onChange={this.setUser} />
+                        Senha: <input type="texte" name="" id=""  onChange={this.setPwd} />
+                        <input type="button" value="calcular" onClick={this.validar}/>
+
+                    </form>
+
+                );
+            }
+            setUser = (event) =>{
+                this.setState({userName:event.target.value})
+            }
+
+            setPwd = (event) =>{
+                this.setState({pwd:event.target.value})
+            }
+
+            validar = () => {
+                if(this.state.userName == "")alert ("user em branco");
+                else if(this.state.pwd == "") alert ("senha em branco");
+                else alert("Login Valido")
+            }
+
+        }
+
+        ReactDOM.render(<Login />, document.getElementById("root"));
+
+
+    </script>
+</body>
+
+</html>
