@@ -24,12 +24,12 @@
             render(){
                 return( 
                     <form>
-                        <input type="text" name="num1" onChange={this.getNum}/>
-                        <input type="text" name="num2" onChange={this.getNum}/>
+                        <input type="number" name="num1" onChange={this.getNum}/>
+                        <input type="number" name="num2" onChange={this.getNum}/>
 
                         <input type="button" value="calcular" onClick={this.calc}/>
 
-                        <input type="text" name="result" onChange={this.getNum}/>
+                        <input type="number" name="result" onChange={this.getNum}/>
 
                     </form>
                 );
