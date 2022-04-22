@@ -34,9 +34,10 @@
                     </form>
                 );
             }
-            getNum = (number) =>{
+            getNum = (numbers) =>{
 
-                this.getNum({[number.target.name]: number.target.value})
+                this.getNum({[numbers.target.name]: numbers.target.value})
+                console.log(getNum);
             }
 
 
