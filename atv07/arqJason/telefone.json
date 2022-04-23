@@ -8,12 +8,12 @@
         {
             "name": "Iphone",
             "price": "R$ 6.999,90",
-            "img": "../imagens/iphone.jpg"
+            "img": "./imagens/iphone.jpg"
         },
         {
             "name": "Mi 10 PRO",
             "price": "R$ 3.399,00",
-            "img": "../imagens/xiaomi.jpeg"
+            "img": "./imagens/xiaomi.jpeg"
         }
     ]
 }
