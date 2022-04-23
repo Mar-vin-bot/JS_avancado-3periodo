@@ -12,14 +12,13 @@
     <style>
         .title {
             text-align: center;
-    
+
         }
-        p{
+
+        p {
             color: blue;
             font-size: 25px;
         }
-
-
     </style>
 </head>
 
@@ -30,24 +29,25 @@
             constructor(props) {
                 super(props);
                 this.state = {
-                    galaxyS21: [
-                        { name: "Galaxy s21", price: "5.399,00", img: "../imagens/s-l300.png" }
-                    ]
+                    galaxyS21: {
+                        name: "Galaxy s21",
+                        price: "R$ 5.399,00",
+                        img: "../atv07/imagens/s-l300.png"
+                    }
                 }
             }
-            //verificar se img ta corrento com prova
+
+            //verificar se img ta correto com prova
             render() {
                 var styleTitle = "title";
 
                 return (
                     <div className={styleTitle}>
-                        {this.state.galaxyS21.map(user =>
-                            <span>
-                                <img src={user.img} />
-                                <h2 className={styleTitle}>{user.name}</h2>
-                                <p>{user.price}</p>
-                            </span>
-                        )}
+
+                        <img src={this.state.galaxyS21.img} />
+                        <h2 className={styleTitle}>{this.state.galaxyS21.name}</h2>
+                        <p>{this.state.galaxyS21.price}</p>
+
                     </div>
                 );
             }
