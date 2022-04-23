@@ -3,7 +3,7 @@
         {
             "name": "Galaxy s21",
             "price": "R$ 5.399,00",
-            "img": "../imagens/s-l300.png"
+            "img": "./imagens/s-l300.png"
         },
         {
             "name": "Iphone",
