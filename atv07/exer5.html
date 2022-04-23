@@ -14,12 +14,11 @@
             text-align: center;
 
         }
-        p{
+
+        p {
             color: blue;
             font-size: 25px;
         }
-
-
     </style>
 </head>
 
@@ -29,7 +28,7 @@
         class Phone extends React.Component {
             constructor(props) {
                 super(props);
-                this.state = { mobile: [] , file:"../arqJason/telefone.json" }
+                this.state = { mobile: {}, file: "../arqJason/telefone.json" }
             }
 
             render() {
@@ -37,30 +36,31 @@
 
                 return (
                     <div className={styleTitle}>
-                        {this.state.mobile.map(user =>
+                       
                             <span>
-                                <img src={user.img} />
-                                <h2 className={styleTitle}> {user.name}</h2>
-                                <p>{user.price}</p>
+                                <img src={this.state.mobile.img} />
+                                <h2 className={styleTitle}> {this.state.mobile.name}</h2>
+                                <p>{this.state.mobile.price}</p>
                             </span>
-                        )}
+
                     </div>
                 );
             }
-            componentDidMount(){                //3 a ser executado                
-                fetch(this.state.file)        
-                .then (file => file.json())
-                .then(content => {this.setState({mobile:content.phoneColections})}) 
-                .catch(err => console.log(err));
 
-                this.timeID = setInterval(() => this.showPhone(), 1000)
+            componentDidMount() {                //3 a ser executado                
+                fetch(this.state.file)
+                    .then(file => file.json())
+                    .then(content => { 
+                        this.setState({ mobile: content.phoneColections }) })
+                    .catch(err => console.log(err));
+
+                //this.timeID = setInterval(() => this.showPhone(), 1000)
             }
-            showPhone(){
-                
-            }
+
+
+           // showPhone() { }
 
         }
-
         ReactDOM.render(<Phone />, document.getElementById("root"));
 
 

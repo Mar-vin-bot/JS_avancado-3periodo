@@ -19,7 +19,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-        
+
         }
     </style>
 </head>
@@ -45,7 +45,10 @@
 
                             Segundo:  <input type="number" name="num2" onChange={this.getSecNum} />
 
-                            <input type="button" value="Soma" onClick={this.calc} />
+                            <input type="button" value="+" onClick={this.adicao} />
+                            <input type="button" value="-" onClick={this.subtrcao} />
+                            <input type="button" value="*" onClick={this.multiplicacao} />
+                            <input type="button" value="/" onClick={this.divisao} />
 
                             Resultado: <input type="number" name="resultado" value={this.state.result} />
 
@@ -64,9 +67,28 @@
 
             }
 
-            calc = () => {
+            adicao = () => {
 
                 this.setState({ result: parseFloat(this.state.num1) + parseFloat(this.state.num2) })
+
+            }
+            subtrcao = () => {
+
+                this.setState({ result: parseFloat(this.state.num1) - parseFloat(this.state.num2) })
+
+            }
+            multiplicacao = () => {
+
+                this.setState({ result: parseFloat(this.state.num1) * parseFloat(this.state.num2) })
+
+            }
+            divisao = () => {
+                if(this.state.num2 == 0){
+                    alert("Divisor deve ser diferente de ZERO")
+                }else{
+
+                this.setState({ result: parseFloat(this.state.num1) / parseFloat(this.state.num2) })
+                }
 
             }
 
