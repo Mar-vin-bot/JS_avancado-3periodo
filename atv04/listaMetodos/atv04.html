@@ -101,15 +101,15 @@
         document.write(`<h3 style="color: blue;">Exercício 6</h3>`)
         //https://www.w3schools.com/js/js_array_sort.asp
 
-        maxSal = dados.sort(function(a, b){ return a.salario - b.salario});
-        maiorSal = maxSal[maxSal.length-1]
+        maxSal = dados.sort(function (a, b) { return a.salario - b.salario });
+        maiorSal = maxSal[maxSal.length - 1]
         document.write(`<p>${maiorSal.nome}</p>`)
 
 
         document.write(`<h3 style="color: blue;">Exercício 7</h3>`)
         //https://www.w3schools.com/js/js_array_sort.asp
 
-        maxSal = dados.sort(function(a, b){ return a.salario - b.salario});
+        maxSal = dados.sort(function (a, b) { return a.salario - b.salario });
         maiorSal = maxSal[0]
         document.write(`<p>${maiorSal.nome}</p>`)
 
@@ -117,7 +117,7 @@
         document.write(`<h3 style="color: blue;">Exercício 8</h3>`)
         //https://www.w3schools.com/jsref/jsref_some.asp
 
-        salMaior = dados.some(elemento =>(elemento.sexo == "M" && elemento.salario > 5000)) 
+        salMaior = dados.some(elemento => (elemento.sexo == "M" && elemento.salario > 5000))
         document.write(`<p>${salMaior}</p>`)
 
         document.write(`<h3 style="color: blue;">Exercício 9</h3>`)
@@ -136,47 +136,6 @@
         }
 
         infoDados(dados);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        filtrarNomes = trabalhadores.filter(elemento => elemento.salario > 3000)
-        exibirNomes = filtrarNomes.forEach(elemento => document.write(`<p>${elemento.nome}</p>`))
-
-
-
-
-
-
-
-
-
 
 
 
