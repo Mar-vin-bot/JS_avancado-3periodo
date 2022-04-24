@@ -9,6 +9,13 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -19,25 +26,25 @@
             constructor(props) {                //1 a ser executado
                 super(props);
                 //this.state = { jogadores: [] }    //combinado com a linha 34  //fetch("users.json")  
-                this.state = { jogadores: []  , file:"../atv07/arqJason/users.json" }
+                this.state = { jogadores: [], file: "./arqJson/users.json" }
             }
 
             render() {                           //2 a ser executado
-                    //user -> nome qualquer dado na função do map
-                    //name e score atributos usados no json
+                //user -> nome qualquer dado na função do map
+                //name e score atributos usados no json
                 return (
-                    <table>         
+                    <table>
                         {this.state.jogadores.map(user => <tr><td>{user.name}</td> <td>{user.score}</td></tr>)}
                     </table>
                 );
             }
-            componentDidMount(){                //3 a ser executado
-                 //fetch("users.json")                 
+            componentDidMount() {                //3 a ser executado
+                //fetch("users.json")                 
                 fetch(this.state.file)          //then faz a função do await
-                .then (file => file.json())
-                .then(content => {this.setState({jogadores:content.Players})}) //Players -> nome vetor json
-                .catch(err => console.log(err));
-              
+                    .then(file => file.json())
+                    .then(content => { this.setState({ jogadores: content.Players }) }) //Players -> nome vetor json
+                    .catch(err => console.log(err));
+
 
             }
 

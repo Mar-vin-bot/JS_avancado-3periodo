@@ -28,7 +28,7 @@
         class Phone extends React.Component {
             constructor(props) {
                 super(props);
-                this.state = { mobile: [], file: "./arqJason/telefone.json" }
+                this.state = { mobile: [], file: "./arqJson/telefone.json" }
             }
 
             render() {
@@ -37,17 +37,17 @@
                 return (
                     <div className={styleTitle}>
                         {this.state.mobile.map(user =>
-                            <span>
+                            <div>
                                 <img src={user.img} width="200px" height="300px" />
                                 <h2 className={styleTitle}> {user.name}</h2>
                                 <p>{user.price}</p>
-                            </span>
+                            </div>
                         )}
                     </div>
                 );
             }
 
-            componentDidMount() {                //3 a ser executado                
+            componentDidMount() {                //fetch do json         
                 fetch(this.state.file)
                     .then(file => file.json())
                     .then(content => {
@@ -55,11 +55,13 @@
                     })
                     .catch(err => console.log(err));
 
-                //this.timeID = setInterval(() => this.showPhone(), 1000)
+                this.timeID = setInterval(() => this.showPhone(), 1000)
             }
 
+            showPhone = () => {
+            }
 
-            // showPhone() { }
+        
 
         }
         ReactDOM.render(<Phone />, document.getElementById("root"));
