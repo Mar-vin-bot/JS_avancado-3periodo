@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .box {
+            width: 400px;
+            height: 250px;
+            border: 6px solid blue;
+            border-radius: 40px;
+            padding-left: 25px;
+
+        }
+
+        .botao {
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            width: 20%;
+            margin-top: 20px;
+            margin-left: 35%;
+
+        }
+
+
+
+        input {
+            display: block;
+            margin-bottom: 5px;
+            margin-top: 5px;
+            width: 90%;
+
+        }
+
+        h1 {
+            color: blue;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Login extends React.Component {
+            constructor(props) { // 1ª a ser executado
+                super(props);
+                this.state = { usuarios: [], username: "", senha: "" }
+            }
+            render() {
+                var styleContainer = "container";
+                var styleBox = "box";
+                var styleBotao = "botao";
+                return (
+                    <div className={styleContainer}>
+                        <div className={styleBox}>
+                            <h1>Acesso ao Sistema </h1>
+                            <form>
+                                <label for="campo1">Username:</label>
+                                <input type="text" name="username" id="campo1" onChange={this.setData} />
+
+                                <label for="campo2">Senha:</label>
+                                <input type="text" name="senha" id="campo2" onChange={this.setData} />
+
+                                <input className={styleBotao} type="button" value="Entrar" onClick={this.validar} />
+                            </form>
+                        </div>
+                    </div>
+                )
+            }
+
+            setData = (event) => {
+                //event.preventDefault();
+                this.setState({ [event.target.name]: event.target.value })
+            }
+
+            componentDidMount() {
+               
+                fetch("senha.json")
+                    .then(file => file.json())
+                    .then(file => {
+                        this.setState({usuarios:file.credenciais })}
+                    )                
+                    .catch(err => console.log(err));
+            }
+
+
+            validar = () => {
+
+                if (this.state.username == "") alert("Favor informar o usuário");
+                else if (this.state.senha == "") alert("Favor informar a senha");
+                else{
+                    var validar = false;
+                    
+                    for(var i=0; i < this.state.usuarios.length; i++ ){
+                        this.setElement = this.state.usuarios[i]
+                        if ( (this.setElement.user == this.state.username) && (this.setElement.senha == this.state.senha) ){
+                            window.open("jogo.html")
+                            validar = true;
+                            
+                        }
+
+                    }
+                    if(validar == false ) alert("User invalido")
+                }
+
+
+                }
+
+            }
+
+
+
+
+
+
+        
+
+        ReactDOM.render(<Login />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
