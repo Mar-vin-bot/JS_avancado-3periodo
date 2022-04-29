@@ -105,7 +105,8 @@
 
                 if (this.state.username == "") alert("Favor informar o usuário");
                 else if (this.state.senha == "") alert("Favor informar a senha");
-                else{
+               /* else{
+                    
                     var validar = false;
                     
                     for(var i=0; i < this.state.usuarios.length; i++ ){
@@ -119,7 +120,13 @@
                     }
                     if(validar == false ) alert("User invalido")
                 }
-
+                */
+               else{            //USER FILTER
+                   const verifica = this.state.usuarios.find(element => element.user == this.state.username && element.senha == this.state.senha);
+                   if (verifica == undefined ) alert("Usuario Invalido")
+                   //else window.location.href = ("jogo.html")
+                   console.log(verifica)
+               }
 
                 }
 
