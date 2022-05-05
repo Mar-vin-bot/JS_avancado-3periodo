@@ -15,7 +15,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-            
+
         }
 
         .box {
@@ -24,15 +24,15 @@
             border: 6px solid blue;
             border-radius: 40px;
             padding-left: 25px;
-            
+
         }
 
-        .botao{
+        .botao {
             background-color: blue;
             color: white;
             border-radius: 5px;
             width: 20%;
-            margin-top: 20px;   
+            margin-top: 20px;
             margin-left: 35%;
 
         }
@@ -56,12 +56,12 @@
 </head>
 
 <body>
-    <div "root"></div>
+    <div id="root"></div>
     <script type="text/babel">
         class Login extends React.Component {
             constructor(props) { // 1ª a ser executado
                 super(props);
-                this.state = {usuarios:[], username: "", senha: "", file: "senha.json" }
+                this.state = { usuarios: [], username: "", senha: "", arqJson: "senha.json" }
             }
             render() {
                 var styleContainer = "container";
@@ -88,7 +88,8 @@
             setData = (event) => {
                 //event.preventDefault();
                 this.setState({ [event.target.name]: event.target.value })
-                
+
+
                 /* 
                 essa linha: estamos acessando o construtor atraves do this.setState() onde o [event.target.name] p/ diferenciar name="username" e 
                 name="senha" para que os atributos nos construtores possam receber os values atraves do event.target.value
@@ -97,28 +98,31 @@
             }
 
             componentDidMount() {// 3ª a ser executado
-                // Ler o arquivo JSON e descarregar o conteudo dele no vetor usuarios
-                fetch(this.state.file) // file: atributo que recebe o caminho da pasta json
-                    .then(file => file.json()) //
-                    .then(content => { this.setState({usuarios : content.credenciais }) })  
-                    .catch(err => console.log(err));
-            }
 
+                fetch(this.state.arqJson)
+                    .then(file => file.json())
+                    .then(content =>  this.setState({ usuarios: content.credenciais }))
+                    .catch(err => console.log(err));
+
+                    /*
+                    fatch: atributo que recebe caminho da pasta do json (ver construtor)
+                    credenciais: nome do array do arq json
+                    
+                    usuarios: array no construtor que recebe todo o arquivo json em forma de vetor {usuarios: content.credenciais}
+
+
+                    */
+            }
 
             validar = () => {
-                {this.state.usuarios.forEach(element => this.setState([event.target.name])
-                    
-                    
-                    
-                    
-                    )
-                /*
-                validar = () => {
-                if (this.state.username == "") alert("Favor informar o usuário");
-                else if (this.state.pwd == "") alert("Favor informar a senha");
-                else alert("Login válido!");
-                */
-            }
+
+                if (this.state.username == "") alert("O compo usuario esta vazio")
+                else if (this.state.senha == "") alert("O campo senha esta vazio")
+                else {
+                    var retorno = this.state.usuarios.filter(element => (element.user == this.state.username) && element.senha == this.state.senha)
+                    if (retorno.length > 0) window.open("jogo.html")
+                    else alert("Usuario invalido")
+                }
 
             }
 

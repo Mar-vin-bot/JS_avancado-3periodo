@@ -88,15 +88,22 @@
             setData = (event) => {
                 //event.preventDefault();
                 this.setState({ [event.target.name]: event.target.value })
+
+                /* 
+                essa linha: estamos acessando o construtor atraves do this.setState() onde o [event.target.name] p/ diferenciar name="username" e 
+                name="senha" para que os atributos nos construtores possam receber os values atraves do event.target.value
+ 
+                */
             }
 
             componentDidMount() {
-               
+
                 fetch("senha.json")
                     .then(file => file.json())
                     .then(file => {
-                        this.setState({usuarios:file.credenciais })}
-                    )                
+                        this.setState({ usuarios: file.credenciais })
+                    }
+                    )
                     .catch(err => console.log(err));
             }
 
@@ -105,32 +112,32 @@
 
                 if (this.state.username == "") alert("Favor informar o usuário");
                 else if (this.state.senha == "") alert("Favor informar a senha");
-                else{
+                else {
                     var validar = false;
-                    
-                    for(var i=0; i < this.state.usuarios.length; i++ ){
+
+                    for (var i = 0; i < this.state.usuarios.length; i++) {
                         this.setElement = this.state.usuarios[i]
-                        if ( (this.setElement.user == this.state.username) && (this.setElement.senha == this.state.senha) ){
+                        if ((this.setElement.user == this.state.username) && (this.setElement.senha == this.state.senha)) {
                             window.open("jogo.html")
                             validar = true;
-                            
+
                         }
 
                     }
-                    if(validar == false ) alert("User invalido")
+                    if (validar == false) alert("User invalido")
                 }
 
-
-                }
 
             }
 
+        }
 
 
 
 
 
-        
+
+
 
         ReactDOM.render(<Login />, document.getElementById("root"));
     </script>
