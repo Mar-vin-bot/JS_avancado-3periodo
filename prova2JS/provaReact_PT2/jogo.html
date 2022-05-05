@@ -17,19 +17,43 @@
         class Aleatorio extends React.Component {
             constructor(props) { // 1ª a ser executado
                 super(props);
-                this.state = { num: 0 }
+                this.state = { num: 0, numSort: "" }
             }
 
             render() {
                 return (
+                    <div>
+
+                        <p>Informe um numero aleatorio </p>
+                        <form>
+                            <input type="number" name="num" onChange={this.setData} />
+
+                            <input type="button" value="Conferir" onClick={this.conferir} />
+                        </form>
+                    </div>
+                )
+            }
+            componentDidMount() {
+            this.setState({numSort: Math.floor(Math.random() * 10 + 1)})
+            }
+
+            
+            setData = (event) => {
+                this.setState({[event.target.name]: event.target.value})
+                /*
+                Aqui o atributo num recebe o value
+                */
+            }
+
+            conferir = () => {
+                
+
+            }
+
+        }
 
 
-    <p>Informe um numero aleatorio </p>
-    <form>
-        <input type="number/">
-        <input type="button" value="Conferir/">
-    </form>
-    ReactDOM.render(<Login />, document.getElementById("root"));
+    ReactDOM.render(<Aleatorio />, document.getElementById("root"));
     </script>
 </body>
 
