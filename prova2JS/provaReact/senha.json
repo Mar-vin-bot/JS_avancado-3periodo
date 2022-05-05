@@ -1,0 +1,7 @@
+{
+    "credenciais":[
+      {"user":"Wilton", "senha":"123"},
+      {"user":"Maria", "senha":"456"},
+      {"user":"Ana", "senha":"789"}
+    ]
+    }

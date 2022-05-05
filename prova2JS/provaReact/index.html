@@ -72,11 +72,11 @@
                         <div className={styleBox}>
                             <h1>Acesso ao Sistema </h1>
                             <form>
-                                <label for="labUser">Username:</label>
-                                <input type="text" name="username" id="labUser" onChange={this.setData} />
+                                <label for="campo1">Username:</label>
+                                <input type="text" name="username" id="campo1" onChange={this.setData} />
 
-                                <label for="labSenha">Senha:</label>
-                                <input type="text" name="senha" id="labSenha" onChange={this.setData} />
+                                <label for="campo2">Senha:</label>
+                                <input type="text" name="senha" id="campo2" onChange={this.setData} />
 
                                 <input className={styleBotao} type="button" value="Entrar" onClick={this.validar} />
                             </form>
@@ -88,24 +88,14 @@
             setData = (event) => {
                 //event.preventDefault();
                 this.setState({ [event.target.name]: event.target.value })
-                 /* 
-                essa linha: estamos acessando o construtor atraves do this.setState() onde o [event.target.name] p/ diferenciar name="username" e 
-                name="senha" para que os atributos nos construtores possam receber os values atraves do event.target.value
-                
-                */
             }
 
             componentDidMount() {
                
                 fetch("senha.json")
                     .then(file => file.json())
-                    .then(content => {
-                        this.setState({usuarios : content.credenciais })}			/* usuarios: array criado no construtor
-                    									   content: nome qualquer dado a função que irá transferir 
-                    									   o json para dentro do array usuarios. 
-                    									   usuarios : content.credenciais
-                    									   credenciais: é o nome dado ao array dentro do json
-                    									  */
+                    .then(file => {
+                        this.setState({usuarios:file.credenciais })}
                     )                
                     .catch(err => console.log(err));
             }
@@ -116,8 +106,7 @@
                 if (this.state.username == "") alert("Favor informar o usuário");
                 else if (this.state.senha == "") alert("Favor informar a senha");
                 else{
-                    
-                    var validar = false; //TESTAR OUTRO NOME PARA VER SE FUNCIONA
+                    var validar = false;
                     
                     for(var i=0; i < this.state.usuarios.length; i++ ){
                         this.setElement = this.state.usuarios[i]
@@ -130,14 +119,7 @@
                     }
                     if(validar == false ) alert("User invalido")
                 }
-            	/*
-               else{            //USER FIND PROCURAR DOCUMENTACAO
-                   const verifica = this.state.usuarios.find(element => element.user == this.state.username && element.senha == this.state.senha);
-                   if (verifica == undefined ) alert("Usuario Invalido")
-                   //else window.location.href = ("jogo.html")
-                   console.log(verifica)
-               }
-               */
+
 
                 }
 

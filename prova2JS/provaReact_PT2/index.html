@@ -15,7 +15,7 @@
             flex-direction: row;
             justify-content: center;
             align-items: center;
-
+            
         }
 
         .box {
@@ -24,15 +24,15 @@
             border: 6px solid blue;
             border-radius: 40px;
             padding-left: 25px;
-
+            
         }
 
-        .botao {
+        .botao{
             background-color: blue;
             color: white;
             border-radius: 5px;
             width: 20%;
-            margin-top: 20px;
+            margin-top: 20px;   
             margin-left: 35%;
 
         }
@@ -56,12 +56,12 @@
 </head>
 
 <body>
-    <div id="root"></div>
+    <div "root"></div>
     <script type="text/babel">
         class Login extends React.Component {
             constructor(props) { // 1ª a ser executado
                 super(props);
-                this.state = { usuarios: [], username: "", senha: "" }
+                this.state = {usuarios:[], username: "", senha: "", file: "senha.json" }
             }
             render() {
                 var styleContainer = "container";
@@ -88,58 +88,37 @@
             setData = (event) => {
                 //event.preventDefault();
                 this.setState({ [event.target.name]: event.target.value })
-                 /* 
+                
+                /* 
                 essa linha: estamos acessando o construtor atraves do this.setState() onde o [event.target.name] p/ diferenciar name="username" e 
                 name="senha" para que os atributos nos construtores possam receber os values atraves do event.target.value
                 
                 */
             }
 
-            componentDidMount() {
-               
-                fetch("senha.json")
-                    .then(file => file.json())
-                    .then(content => {
-                        this.setState({usuarios : content.credenciais })}			/* usuarios: array criado no construtor
-                    									   content: nome qualquer dado a função que irá transferir 
-                    									   o json para dentro do array usuarios. 
-                    									   usuarios : content.credenciais
-                    									   credenciais: é o nome dado ao array dentro do json
-                    									  */
-                    )                
+            componentDidMount() {// 3ª a ser executado
+                // Ler o arquivo JSON e descarregar o conteudo dele no vetor usuarios
+                fetch(this.state.file) // file: atributo que recebe o caminho da pasta json
+                    .then(file => file.json()) //
+                    .then(content => { this.setState({usuarios : content.credenciais }) })  
                     .catch(err => console.log(err));
             }
 
 
             validar = () => {
-
+                {this.state.usuarios.forEach(element => this.setState([event.target.name])
+                    
+                    
+                    
+                    
+                    )
+                /*
+                validar = () => {
                 if (this.state.username == "") alert("Favor informar o usuário");
-                else if (this.state.senha == "") alert("Favor informar a senha");
-                else{
-                    
-                    var validar = false; //TESTAR OUTRO NOME PARA VER SE FUNCIONA
-                    
-                    for(var i=0; i < this.state.usuarios.length; i++ ){
-                        this.setElement = this.state.usuarios[i]
-                        if ( (this.setElement.user == this.state.username) && (this.setElement.senha == this.state.senha) ){
-                            window.open("jogo.html")
-                            validar = true;
-                            
-                        }
-
-                    }
-                    if(validar == false ) alert("User invalido")
-                }
-            	/*
-               else{            //USER FIND PROCURAR DOCUMENTACAO
-                   const verifica = this.state.usuarios.find(element => element.user == this.state.username && element.senha == this.state.senha);
-                   if (verifica == undefined ) alert("Usuario Invalido")
-                   //else window.location.href = ("jogo.html")
-                   console.log(verifica)
-               }
-               */
-
-                }
+                else if (this.state.pwd == "") alert("Favor informar a senha");
+                else alert("Login válido!");
+                */
+            }
 
             }
 
@@ -148,7 +127,7 @@
 
 
 
-        
+        }
 
         ReactDOM.render(<Login />, document.getElementById("root"));
     </script>

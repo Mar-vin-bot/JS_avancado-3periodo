@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class Aleatorio extends React.Component {
+            constructor(props) { // 1ª a ser executado
+                super(props);
+                this.state = { num: "", num2: "" }
+            }
+
+            render() {
+                return (
+                    <div>
+                        <p>Informe um numero aleatorio 1 a 10</p>
+                        <form>
+
+
+                            <input type="number" name="num2" id="campo2" onChange={this.setData} />
+
+                            <input type="button" value="Conferir" onClick={this.conferir} />
+                        </form>
+                    </div>
+                )
+
+            }
+            componentDidMount() {
+            this.setState({num: Math.floor(Math.random() * 10 + 1)})
+            }
+
+            setData = (event) => {
+                //event.preventDefault();
+                this.setState({ [event.target.name]: event.target.value })
+            }
+
+            conferir = () => {
+  
+            
+                if (this.state.num == this.state.num2) alert("Parabens! RESPOSTA CERTA")
+                else  if (this.state.num > this.state.num2) alert("Você errou. Tente um número MAIOR!")
+                else  if (this.state.num < this.state.num2) alert("Você errou. Tente um número MENOR!")
+            }
+        }
+
+        ReactDOM.render(<Aleatorio />, document.getElementById("root"));
+    </script>
+</body>
+
+</html>
