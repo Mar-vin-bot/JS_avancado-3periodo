@@ -14,46 +14,36 @@
 <body>
     <div id="root"></div>
     <script type="text/babel">
-        class Aleatorio extends React.Component {
-            constructor(props) { // 1ª a ser executado
+        class Jogo extends React.Component {
+            constructor(props) {
                 super(props);
-                this.state = { num: 0, numSort: "" }
+                this.state = {
+                    nroSorteado: Math.floor(Math.random() * 10) + 1,
+                    nroUser: -1
+                }
             }
-
             render() {
                 return (
                     <div>
-
-                        <p>Informe um numero aleatorio </p>
+                        <p>Informe um número aleatório entre 1 e 10</p>
                         <form>
-                            <input type="number" name="num" onChange={this.setData} />
-
-                            <input type="button" value="Conferir" onClick={this.conferir} />
+                            <input type="text" name="nroSorteado" onChange={this.getNumber}/>
+                            <input type="button" value="Conferir" onClick={this.validar}/>
                         </form>
                     </div>
                 )
             }
-            componentDidMount() {
-            this.setState({numSort: Math.floor(Math.random() * 10 + 1)})
+            getNumber = (event) => {
+                event.preventDefault();
+                this.setState({nroUser:event.target.value});
             }
-
-            
-            setData = (event) => {
-                this.setState({[event.target.name]: event.target.value})
-                /*
-                Aqui o atributo num recebe o value
-                */
+            validar = () => {
+                if (this.state.nroSorteado == this.state.nroUser) alert("Parabéns. CERTA RESPOSTA!");
+                else if (this.state.nroUser > this.state.nroSorteado) alert("Você errou. Tente um número MENOR!");
+                else alert("Você errou. Tente um número MAIOR!");
             }
-
-            conferir = () => {
-                
-
-            }
-
         }
-
-
-    ReactDOM.render(<Aleatorio />, document.getElementById("root"));
+        ReactDOM.render(<Jogo/>, document.getElementById("root"));
     </script>
 </body>
 
