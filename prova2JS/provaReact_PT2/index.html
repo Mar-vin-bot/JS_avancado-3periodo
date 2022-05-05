@@ -9,49 +9,7 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Document</title>
-    <style>
-        .container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-
-        }
-
-        .box {
-            width: 400px;
-            height: 250px;
-            border: 6px solid blue;
-            border-radius: 40px;
-            padding-left: 25px;
-
-        }
-
-        .botao {
-            background-color: blue;
-            color: white;
-            border-radius: 5px;
-            width: 20%;
-            margin-top: 20px;
-            margin-left: 35%;
-
-        }
-
-
-
-        input {
-            display: block;
-            margin-bottom: 5px;
-            margin-top: 5px;
-            width: 90%;
-
-        }
-
-        h1 {
-            color: blue;
-            text-align: center;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -106,8 +64,8 @@
 
                     /*
                     fatch: atributo que recebe caminho da pasta do json (ver construtor)
+                    content: nome qualquer dado a funcao
                     credenciais: nome do array do arq json
-                    
                     usuarios: array no construtor que recebe todo o arquivo json em forma de vetor {usuarios: content.credenciais}
 
 
@@ -116,13 +74,20 @@
 
             validar = () => {
 
-                if (this.state.username == "") alert("O compo usuario esta vazio")
+                if (this.state.username == "") alert("O compo usuario esta vazio")  // condição para validar campos vazios
                 else if (this.state.senha == "") alert("O campo senha esta vazio")
                 else {
-                    var retorno = this.state.usuarios.filter(element => (element.user == this.state.username) && element.senha == this.state.senha)
+                    var retorno = this.state.usuarios.filter(element => (element.user == this.state.username) && (element.senha == this.state.senha))
                     if (retorno.length > 0) window.open("jogo.html")
                     else alert("Usuario invalido")
                 }
+                /*
+                    retorno é um vator que recebe o usuario e senha dos que cumprirem a condição
+                    element: acessa o vetor json que foi acoplado dentro de usuarios[]. então element.user  compara com o txt digitado pelo usuario
+                    em this.state.username e o mesmo acontece com a senha. Caso condição valida a var retorno recebe info
+                    se retorno maior que zero elucida que houve credencial aprovada e assim abrira pg se retorno.length = 0 nenhuma credencial
+                    foi validada
+                */
 
             }
 
