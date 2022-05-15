@@ -2,6 +2,7 @@ pwd :retorna da raiz ate a pasta em que o terminal esta aberto
 cd ..  :retorna uma paz anterior
 cd nomePAsta :entra na pasta existente naquele diretorio.
 ls :lista todos arq e pasta no diretorio
+ls -a :mostra arquivos ocultos
 mkdir nomePasta :cria um diretorio com o nomePasta
 
 rm -r nomePasta :deleta diretorio não sendo possivel desfazer ação. 
